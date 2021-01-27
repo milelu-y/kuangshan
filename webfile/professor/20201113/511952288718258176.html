@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻详情</title>
+    <link rel="stylesheet" href="http://127.0.0.1/assets/css/global.css">
+    <link rel="stylesheet" href="http://127.0.0.1/assets/css/news-details.css">
+    <link rel="stylesheet" href="http://127.0.0.1/assets/css/quill.core.css">
+    <link rel="stylesheet" href="http://127.0.0.1/assets/css/quill.bubble.css">
+    <link rel="stylesheet" href="http://127.0.0.1/assets/css/quill.snow.css">
+    <script src="http://127.0.0.1/assets/js/jquery-1.11.3.min.js"></script>
+</head>
+
+<header>
+    <!-- 顶部 -->
+    <div class="about-head">
+        <!-- 最上面logo部分 -->
+        <div class="logo">
+            <div class="float-left logo-left">
+                <!-- 左边logo和文字 -->
+                <div class="logo-left-img"></div>
+            </div>
+            <div class="float-right logo-right">
+                <!-- 右边搜索和电话 -->
+<div class="search float-left">
+    <input class="search-box" placeholder="请在此搜索关键字哟......" type="text">
+    <i class="search-icon"></i>
+</div>                <div class="phone float-right">
+                    <div class="phone-icon"></div>
+                    <div class="phone-num">0731-88671588</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二层头部导航区 -->
+        <div class="head-bar">
+            <div class="app">
+<ul>
+        <li><a href="/">中心首页</a></li>
+    <li><a href="/about/index.html">关于我们</a></li>
+    <li><a href="/Inspection/index.html">检查检验</a></li>
+    <li><a href="/skill/index.html">技术服务</a></li>
+    <li><a href="/skillTraining/index.html">技术培训</a></li>
+    <li><a href="/certificate/index.html">证书查询</a></li>
+    <li><a href="/qualification/index.html">资质授权</a></li>
+    <li><a href="/news/index.html">新闻中心</a></li>
+</ul>            </div>
+        </div>
+
+        <!-- h1 关于我们 -->
+        <div class="logo-h1 app">
+            <h1>新闻
+                <span>中心</span>
+            </h1>
+            <div>NewsCenter</div>
+        </div>
+
+    </div>
+
+</header>
+<body>
+<!-- 当前位置 -->
+<div class="current-position">
+    <div class="app1 app">
+        <div class="about-icon"></div>
+        <div class="current-div">您当前的位置 :</div>
+        <div class="current-ul">
+            <ul>
+                <li><a href="/index.html">网站首页</a></li>
+                <span>></span>
+                <li><a href="新闻中心.html">关于我们</a></li>
+                <span>></span>
+                <li><a href="新闻中心.html">专家团队</a></li>
+                <span>></span>
+                <li><a href="新闻中心.html">国务院津贴教授</a></li>
+                <span>></span>
+        <li><a href="javascript:;">正文</a></li>
+        </ul>
+    </div>
+</div>
+<div class="news-content app">
+    <h1>测试</h1>
+    <div class="news-text">
+        <div class="text1">新闻导读 :
+            <sapn class="text2">测试</sapn>
+        </div>
+    </div>
+    <div class="news-time">
+        <div class="time">
+            <div class="left">发布时间 : </div>
+            <div class="right">2020-11-13</div>
+        </div>
+        <div class="click-rate">
+            <div class="left">点击率 : </div>
+            <div class="right"><span id="clicks">0</span></div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- 新闻详情 -->
+<div class="news-content app ql-editor">
+    <p class="ql-align-center">牛逼 大佬 你最厉害</p>
+    <div class="content-span-border"></div>
+    <div class="content-next">
+        <div>
+            上一篇：
+            <a class="next-top" href="#">无</a>
+</div>
+<div>
+    下一篇：
+    <a class="next-bottom" href="#">无</a>
+</div>
+</div>
+</div>
+
+
+<!-- 最新更新 -->
+<div class="newest-content">
+
+    <div class="app">
+        <div class="text-div">最新更新</div>
+        <div class="text-img">
+            <ul>
+                <li>
+                    <img src="/static/content/2020/11/13/6b5425f1-17f7-41ad-8131-ee9750c8e535.png" alt="">
+                    <div class="img-text"><a href="\professor\20201113\511952288718258176.html">FreeMarker template error (DEBUG mode; use RETHROW in production!):
+?substring(...) argument #2 had invalid value: The index mustn't be greater than the length of the string, 2, but it was 17.
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${content.title?substring(0, 17)!}  [in template "content/detail.html" at line 135, column 69]
+	- Reached through: @_d_uptodates rowNum=4 categoryId=cat...  [in template "content/detail.html" at line 126, column 5]
+	- Reached through: @_d_content contentId=contentId  [in template "content/detail.html" at line 54, column 1]
+----
+
+Java stack trace (for programmers):
+----
+freemarker.core._TemplateModelException: [... Exception message was already printed; see it above ...]
+	at freemarker.core._MessageUtil.newMethodArgInvalidValueException(_MessageUtil.java:279)
+	at freemarker.core.BuiltInsForStringsBasic$substringBI$1.newIndexGreaterThanLengthException(BuiltInsForStringsBasic.java:620)
+	at freemarker.core.BuiltInsForStringsBasic$substringBI$1.exec(BuiltInsForStringsBasic.java:604)
+	at freemarker.core.MethodCall._eval(MethodCall.java:65)
+	at freemarker.core.Expression.eval(Expression.java:83)
+	at freemarker.core.DefaultToExpression._eval(DefaultToExpression.java:88)
+	at freemarker.core.Expression.eval(Expression.java:83)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:100)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:63)
+	at freemarker.core.Environment.visit(Environment.java:366)
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:317)
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:271)
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:242)
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:642)
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:107)
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:93)
+	at freemarker.core.Environment.visit(Environment.java:366)
+	at freemarker.core.Environment$NestedElementTemplateDirectiveBody.render(Environment.java:2900)
+	at com.ruoyi.service.freemark.corelibs.handler.TemplateDirectiveHandler.render(TemplateDirectiveHandler.java:54)
+	at com.ruoyi.service.freemark.directive.UpToDateDirective.execute(UpToDateDirective.java:31)
+	at com.ruoyi.service.freemark.corelibs.directive.BaseTemplateDirective.execute(BaseTemplateDirective.java:28)
+	at freemarker.core.Environment.visit(Environment.java:445)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:101)
+	at freemarker.core.Environment.visit(Environment.java:366)
+	at freemarker.core.Environment$NestedElementTemplateDirectiveBody.render(Environment.java:2900)
+	at com.ruoyi.service.freemark.corelibs.handler.TemplateDirectiveHandler.render(TemplateDirectiveHandler.java:54)
+	at com.ruoyi.service.freemark.directive.ContentDirective.execute(ContentDirective.java:29)
+	at com.ruoyi.service.freemark.corelibs.directive.BaseTemplateDirective.execute(BaseTemplateDirective.java:28)
+	at freemarker.core.Environment.visit(Environment.java:445)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:101)
+	at freemarker.core.Environment.visit(Environment.java:330)
+	at freemarker.core.Environment.visit(Environment.java:336)
+	at freemarker.core.Environment.process(Environment.java:309)
+	at freemarker.template.Template.process(Template.java:384)
+	at com.ruoyi.service.freemark.utils.FreeMarkerUtils.generateFileByFile(FreeMarkerUtils.java:71)
+	at com.ruoyi.service.freemark.utils.FreeMarkerUtils.generateFileByFile(FreeMarkerUtils.java:30)
+	at com.ruoyi.service.freemark.compoents.TemplateComponent.createContentStaticFile(TemplateComponent.java:47)
+	at com.ruoyi.service.freemark.observers.ContentAllObserver.genStatic(ContentAllObserver.java:119)
+	at com.ruoyi.service.freemark.observers.ContentAllObserver.pageContent(ContentAllObserver.java:91)
+	at com.ruoyi.service.freemark.observers.ContentAllObserver.genStaticContentFile(ContentAllObserver.java:79)
+	at com.ruoyi.service.freemark.observers.ContentAllObserver.update(ContentAllObserver.java:64)
+	at com.ruoyi.service.freemark.corelibs.subject.SubjectAdapt.lambda$notifyObserver$1(SubjectAdapt.java:67)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:580)
+	at com.ruoyi.service.freemark.corelibs.subject.SubjectAdapt.notifyObserver(SubjectAdapt.java:66)
+	at com.ruoyi.service.freemark.corelibs.notify.AbstractNotify.notify(AbstractNotify.java:31)
+	at com.ruoyi.service.freemark.compoents.NotifyComponent.notifyAllContent(NotifyComponent.java:239)
+	at com.ruoyi.service.freemark.compoents.NotifyComponent.notifyWholeSite(NotifyComponent.java:220)
+	at com.ruoyi.service.freemark.jobs.WholeSiteGenJob.executeInternal(WholeSiteGenJob.java:33)
+	at org.springframework.scheduling.quartz.QuartzJobBean.execute(QuartzJobBean.java:75)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:202)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:573)
+</div>
+
+<!-- 页面底部 -->
+<div class="footer">
+    <div>
+        <div class="head-bar app footer-bar">
+            <ul>
+        <li><a href="/">中心首页</a></li>
+    <li><a href="/about/index.html">关于我们</a></li>
+    <li><a href="/Inspection/index.html">检查检验</a></li>
+    <li><a href="/skill/index.html">技术服务</a></li>
+    <li><a href="/skillTraining/index.html">技术培训</a></li>
+    <li><a href="/certificate/index.html">证书查询</a></li>
+    <li><a href="/qualification/index.html">资质授权</a></li>
+    <li><a href="/news/index.html">新闻中心</a></li>
+</ul>        </div>
+    </div>
+    <div class="footer-div">
+        <div class="app">
+            <div class="footer-logo float-left"></div>
+            <div class="erweima float-right"></div>
+            <div class="footer-content footer-content1">0731-88671588</div>
+            <div class="footer-content footer-content2">中国 ● 湖南 ● 湖南省长沙市岳麓区天马路121号</div>
+            <div class="footer-content footer-content3">
+                <div class="footer-wx">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="footer-xl">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="footer-qq">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="footer-qqkj">
+                    <a href="javascript:;"></a>
+                </div>
+            </div>
+            <div class="footer-content footer-content4">版权所有:国家安全生产长沙矿山机电检测检验中心 湘ICP备14004059号-2 公安备案号 43010402000660</div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        $('.logo-left-img').click(function () {
+            location.href = '首页.html'
+        })
+    })
+</script>
+
+</html>

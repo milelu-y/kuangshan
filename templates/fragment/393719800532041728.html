@@ -1,0 +1,21 @@
+<div class="snto_pagnavcon">
+    <#assign startIndex=1/>
+    <#if (pageCount-pageNo+1) gte 5  >
+    <#assign startIndex =pageNo>
+    <#else>
+    <#assign startIndex =(pageCount+1)-5>
+</#if>
+<a href="index.html">&lt;&lt;</a>
+<#if pageNo gt 1 >
+<a href="${(pageNo-1 == 1 )?string('index.html','index_${pageNo-1}.html')}">&lt;</a>
+</#if>
+<#list 1..pageCount as count>
+<#if count gte startIndex && count lt startIndex+5 >
+<a href="${(count == 1 )?string('index.html','index_${count}.html')}"  ${(pageNo ==count)?string('id="snto_pagnavactive"','')}>${count}</a>
+</#if>
+</#list>
+<#if pageNo lt pageCount >
+<a href="index_${pageNo+1}.html">&gt;</a>
+</#if>
+<a href="${(pageCount == 1 )?string('index.html','index_${pageCount}.html')}">&gt;&gt;</a>
+</div>

@@ -1,0 +1,39 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>矿山研究院</title>
+    <link rel="stylesheet" href="${domain!}assets/css/global.css">
+    <link rel="stylesheet" href="${domain!}assets/css/index1.css">
+    <link rel="stylesheet" href="${domain!}assets/css/swiper-bundle.min.css">
+ 	<link rel="stylesheet" href="${domain!}assets/css/news-details.css">
+    <link rel="stylesheet" href="${domain!}assets/css/news.css">
+    <script src="${domain!}assets/js/jquery-1.11.3.min.js"></script>
+    <script src="${domain!}assets/js/swiper-bundle.min.js"></script>
+</head>
+<header> 
+<!-- 顶部 -->
+    <div class="about-head">
+        <!-- 最上面logo部分 -->
+        <div class="logo">
+            <div class="float-left logo-left">
+                <!-- 左边logo和文字 -->
+                <div class="logo-left-img"></div>
+            </div>
+            <div class="float-right logo-right">
+                <!-- 右边搜索和电话 -->
+                <#include _m_fragment_import('search') />
+                <div class="phone float-right">
+                    <div class="phone-icon"></div>
+                    <div class="phone-num">0731-88671588</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二层头部导航区 -->
+        <div class="head-bar">
+            <div class="app">
+                <#include _m_fragment_import('category_home') />
+            </div>
+        </div>
+    </div>
+</header>

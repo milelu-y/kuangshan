@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资质授权</title>
+    <link rel="stylesheet" href="${domain}assets/css/global.css">
+    <link rel="stylesheet" href="${domain}assets/css/authorized.css">
+    <script src="${domain}assets/js/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+<!-- 顶部 -->
+<div class="about-head">
+    <!-- 最上面logo部分 -->
+    <div class="logo">
+        <div class="float-left logo-left">
+            <!-- 左边logo和文字 -->
+            <div class="logo-left-img"></div>
+        </div>
+        <div class="float-right logo-right">
+            <!-- 右边搜索和电话 -->
+            <#include _m_fragment_import('search') />
+            <div class="phone float-right">
+                <div class="phone-icon"></div>
+                <div class="phone-num">0731-88671588</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第二层头部导航区 -->
+    <div class="head-bar">
+        <div class="app">
+            <#include _m_fragment_import('category_home') />
+        </div>
+    </div>
+
+    <!-- h1 关于我们 -->
+    <div class="logo-h1 app">
+        <h1>资质
+            <span>授权</span>
+        </h1>
+        <div>QualificationAuthorization</div>
+    </div>
+
+</div>
+
+<!-- 当前位置 -->
+<div class="current-position">
+    <div class="app">
+        <div class="about-icon"></div>
+        <div class="current-div">您当前的位置 :</div>
+        <div class="current-ul">
+            <ul>
+                <li><a href="/">网站首页</a></li>
+                <span>></span>
+                <li><a href="index.html">资质授权</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 证书墙 -->
+<div class="news-content">
+    <@_d_content_list pageNo = pageNo pageSize = pageSize pageCount=pageCount categoryId=categoryId>
+    <div class="content-div app">
+        <ul>
+            <#list contents as content>
+            <li>
+                <div class="content">
+                    <img src="${content.cover!}">
+                </div>
+                <span class="content-text"><a href="${content.url!}">${content.title!}</a></span>
+            </li>
+            </#list>
+        </ul>
+    </div>
+    <#if pageCount gte 1>
+    <#include _m_fragment_import('page_list') />
+    </#if>
+    </@_d_content_list>
+</div>
+
+<#include _m_fragment_import('footer') />
+
+</body>
+
+</html>

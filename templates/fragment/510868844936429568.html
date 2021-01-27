@@ -1,0 +1,99 @@
+   <!-- 技术服务 -->
+    <div class="technical-services app">
+        <!-- 标题 -->
+        <div class="technical-head">
+            <div class="float-left gray-bar"></div>
+            <div class="float-left blue-bar"></div>
+            <span class="technical-head-span">技术</span>
+            <span>服务</span>
+            <div class="float-right gray-bar"></div>
+            <div class="float-right blue-bar"></div>
+        </div>
+
+        <!-- 四张图 -->
+        <div class="img">
+            <ul>
+                <li>
+                    <div class="box-img">
+                        <img src="/assets/images/technicalImg1.png">
+                    </div>
+                    <div class="line">
+                        <div class="line-box1"></div>
+                        <div class="line-box2"></div>
+                        <div class="line-box3"></div>
+                    </div>
+                    <div class="text">专业第三方检测机构</div>
+                </li>
+                <li>
+                    <div class="box-img">
+                        <img src="/assets/images/technicalImg2.png">
+                    </div>
+                    <div class="line">
+                        <div class="line-box1"></div>
+                        <div class="line-box2"></div>
+                        <div class="line-box3"></div>
+                    </div>
+                    <div class="text">30余年检测认证经验</div>
+                </li>
+                <li>
+                    <div class="box-img">
+                        <img src="/assets/images/technicalImg3.png">
+                    </div>
+                    <div class="line">
+                        <div class="line-box1"></div>
+                        <div class="line-box2"></div>
+                        <div class="line-box3"></div>
+                    </div>
+                    <div class="text">多家权威机构认可</div>
+                </li>
+                <li>
+                    <div class="box-img">
+                        <img src="/assets/images/technicalImg4.png">
+                    </div>
+                    <div class="line">
+                        <div class="line-box1"></div>
+                        <div class="line-box2"></div>
+                        <div class="line-box3"></div>
+                    </div>
+                    <div class="text">全程一对一服务</div>
+                </li>
+            </ul>
+        </div>
+        <@_d_category_child_content code='Inspection' rowNum=8>
+        <!-- 内容区 -->
+        <div class="content">
+            <!-- 左边的图片 -->
+            <div class="content-img float-left" id="technical-img">
+                <#list contents as data >
+                <#if (data_index==0) >
+                <img src="${data.cover!}" alt="">
+                <#else>
+                <img class="none" src="${data.cover!}" alt="">
+                </#if>
+                </#list>
+            </div>
+            <!-- 右边的tab栏 -->
+            <div class="content-text float-right">
+                <#list contents as data >
+                <div class="text-up">
+                    <h1>${data.title!}</h1>
+                    <ul>
+                        ${data.description!}
+                    </ul>
+                </div>
+                </#list>
+                <div class="text-ul">
+                    <ul id="technical-tab">
+                        <#list contents as data >
+                        <#if (data_index==0) >
+                        <li class="li-hover"><a href="${data.url!}">${data.title!}</a></li>
+                        <#else>
+                        <li><a href="${data.url!}">${data.title!}</a></li>
+                        </#if>
+                        </#list>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </@_d_category_child_content>
+    </div>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${title!}</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/about-us.css">
+    <link rel="stylesheet" href="/assets/css/quill.core.css">
+    <link rel="stylesheet" href="/assets/css/quill.bubble.css">
+    <link rel="stylesheet" href="/assets/css/quill.snow.css">
+    <script src="/assets/js/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+<@_d_category_info categoryId=categoryId categoryCode=code>
+<!-- 顶部 -->
+<div class="about-head">
+    <!-- 最上面logo部分 -->
+    <div class="logo">
+        <div class="float-left logo-left">
+            <!-- 左边logo和文字 -->
+            <div class="logo-left-img"></div>
+        </div>
+        <div class="float-right logo-right">
+            <!-- 右边搜索和电话 -->
+            <#include _m_fragment_import('search') />
+            <div class="phone float-right">
+                <div class="phone-icon"></div>
+                <div class="phone-num">0731-88671588</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第二层头部导航区 -->
+    <div class="head-bar">
+        <div class="app">
+            <div class="app">
+                <#include _m_fragment_import('category_home') />
+            </div>
+        </div>
+    </div>
+
+    <!-- h1 关于我们 -->
+    <div class="logo-h1 app">
+        <h1>关于
+            <span>我们</span>
+        </h1>
+        <div>AboutUS</div>
+    </div>
+
+    <!-- tab切换栏 -->
+    <div class="logo-tab app">
+        <#assign categoryId=id/>
+        <@_d_child_category categoryId=categoryId>
+        <ul>
+
+            <#list categorys as category>
+            <!--id="now-a"-->
+            <li><a href="${(category.contentPath=='/companyProfile/index.html')?string('/about/index.html','${category.contentPath!}')!}" >${category.name!}</a></li>
+            </#list>
+        </ul>
+        </@_d_child_category>
+    </div>
+</div>
+
+<!-- 当前位置 -->
+<div class="current-position">
+    <div class="app">
+        <div class="about-icon"></div>
+
+        <div class="current-div">您当前的位置 :</div>
+        <div class="current-ul">
+            <ul>
+                <li><a href="/index.html">网站首页</a></li>
+                <span>></span>
+                <li><a href="${contentPath!}">${name!}</a></li>
+        </ul>
+    </div>
+
+    </div>
+</div>
+
+<!--内容-->
+<div class="ql-editor" style="width: 80%;margin: auto;color: #333333">
+    ${content!}
+</div>
+
+
+</@_d_category_info>
+
+
+<#include _m_fragment_import('footer') />
+
+</body>
+<script>
+    $(function() {
+        $('#dates li a').click(function() {
+            $('#dates li a').removeClass()
+            $(this).addClass('dates-a')
+        })
+    })
+</script>
+<script>
+    $(function() {
+        $('.logo-left-img').click(function() {
+            location.href = '首页.html'
+        })
+    })
+</script>
+
+<!-- 这个是tab切换的js -->
+<script>
+    $(function() {
+        $('#dates li').click(function() {
+            // console.log($(this).index());
+            $('.development-content').hide()
+            let key = $(this).index() + 1
+            $('#' + key + '').show()
+        })
+    })
+</script>
+
+</html>

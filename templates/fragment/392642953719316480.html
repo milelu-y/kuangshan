@@ -1,0 +1,11 @@
+<ul>
+    <@_d_category_tree>
+    <#list categorys as category>
+    <#if category.attributes?? && category.attributes.uri?has_content>
+    <li><a href="${category.attributes.uri!}">${category.title}</a></li>
+    <#else>
+    <li><a href="${category.url!}">${category.title}</a></li>
+    </#if>
+</#list>
+</@_d_category_tree>
+</ul>

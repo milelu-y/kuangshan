@@ -1,0 +1,21 @@
+<script type="text/javascript">
+    var contentId = "${contentId}";
+    var server = "${server}";
+    var baseApi =server+ "/index";
+    function searchClick(){
+        $.ajax({
+            url: baseApi+'/searchClicks',
+            data: {
+                "contentId":contentId
+            },
+            type: "GET",
+            dataType: "json",
+            success: function(response) {
+                if(response.code==200){
+                    $("#clicks").html(response.data)
+                }
+            }
+        });
+    }
+    searchClick();
+</script>

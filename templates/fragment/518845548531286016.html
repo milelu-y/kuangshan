@@ -1,0 +1,15 @@
+ <@_d_category_by_code codes=['video']>
+    <#list categorys as category>
+    <div class="float-right video-box">
+        <div class="video-box-div">
+            <span class="float-left news-head">${category.name!}</span>
+            <div class="float-left blue-bar"></div>
+            <div class="float-left gray-bar"></div>
+            <button class="float-right news-etc-button"><a href="${category.contentPath!}">更多 ></a></button>
+        </div>
+        <div class="video-box-div2">
+            <iframe width="100%" height="100%" class="ql-video" frameborder="0" allowfullscreen="true" src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></iframe>
+        </div>
+    </div>
+    </#list>
+    </@_d_category_by_code>

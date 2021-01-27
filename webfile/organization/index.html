@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组织架构</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/about-us.css">
+    <link rel="stylesheet" href="/assets/css/quill.core.css">
+    <link rel="stylesheet" href="/assets/css/quill.bubble.css">
+    <link rel="stylesheet" href="/assets/css/quill.snow.css">
+    <script src="/assets/js/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+<!-- 顶部 -->
+<div class="about-head">
+    <!-- 最上面logo部分 -->
+    <div class="logo">
+        <div class="float-left logo-left">
+            <!-- 左边logo和文字 -->
+            <div class="logo-left-img"></div>
+        </div>
+        <div class="float-right logo-right">
+            <!-- 右边搜索和电话 -->
+<div class="search float-left">
+    <form action="/search/searchKewWord.html">
+    <input class="search-box" name="keyword" placeholder="请在此搜索关键字哟......" type="text">
+    <button class="search-icon" type="submit"></button>
+    </form>
+</div>            <div class="phone float-right">
+                <div class="phone-icon"></div>
+                <div class="phone-num">0731-88671588</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第二层头部导航区 -->
+    <div class="head-bar">
+        <div class="app">
+            <div class="app">
+<ul>
+        <li><a href="/">中心首页</a></li>
+    <li><a href="/about/index.html">关于我们</a></li>
+    <li><a href="/meian">检测检验</a></li>
+    <li><a href="/explosion">技术服务</a></li>
+    <li><a href="/testSkill">技术培训</a></li>
+    <li><a href="/certificate/index.html">证书查询</a></li>
+    <li><a href="/qualification/index.html">资质授权</a></li>
+    <li><a href="/news/index.html">新闻中心</a></li>
+</ul>            </div>
+        </div>
+    </div>
+
+    <!-- h1 关于我们 -->
+    <div class="logo-h1 app">
+        <h1>关于
+            <span>我们</span>
+        </h1>
+        <div>AboutUS</div>
+    </div>
+
+    <!-- tab切换栏 -->
+    <div class="logo-tab app">
+        <ul>
+
+            <!--id="now-a"-->
+            <li><a href="/about/index.html" >公司介绍</a></li>
+            <!--id="now-a"-->
+            <li><a href="/organization/index.html" >组织架构</a></li>
+            <!--id="now-a"-->
+            <li><a href="/expertTeam/index.html" >专家团队</a></li>
+            <!--id="now-a"-->
+            <li><a href="/partner/index.html" >合作伙伴</a></li>
+            <!--id="now-a"-->
+            <li><a href="/technicalAchievements/index.html" >技术成果</a></li>
+            <!--id="now-a"-->
+            <li><a href="/talentRecruitment/index.html" >人才招聘</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- 当前位置 -->
+<div class="current-position">
+    <div class="app">
+        <div class="about-icon"></div>
+
+        <div class="current-div">您当前的位置 :</div>
+        <div class="current-ul">
+            <ul>
+                <li><a href="/index.html">网站首页</a></li>
+                <span>></span>
+                <li><a href="/organization/index.html">组织架构</a></li>
+        </ul>
+    </div>
+
+    </div>
+</div>
+
+<!--内容-->
+<div class="ql-editor" style="width: 80%;margin: auto;color: #333333">
+    <p class="ql-align-center">单页</p>
+</div>
+
+
+
+
+<!-- 页面底部 -->
+<div class="footer">
+    <div>
+        <div class="head-bar app footer-bar">
+            <ul>
+        <li><a href="/">中心首页</a></li>
+    <li><a href="/about/index.html">关于我们</a></li>
+    <li><a href="/meian">检测检验</a></li>
+    <li><a href="/explosion">技术服务</a></li>
+    <li><a href="/testSkill">技术培训</a></li>
+    <li><a href="/certificate/index.html">证书查询</a></li>
+    <li><a href="/qualification/index.html">资质授权</a></li>
+    <li><a href="/news/index.html">新闻中心</a></li>
+</ul>        </div>
+    </div>
+    <div class="footer-div">
+        <div class="app">
+            <div class="footer-logo float-left"></div>
+            <div class="erweima float-right"></div>
+            <div class="footer-content footer-content1">0731-88671588</div>
+            <div class="footer-content footer-content2">中国 ● 湖南 ● 湖南省长沙市岳麓区天马路121号</div>
+            <div class="footer-content footer-content3">
+                <div class="footer-wx">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="footer-xl">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="footer-qq">
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="footer-qqkj">
+                    <a href="javascript:;"></a>
+                </div>
+            </div>
+            <div class="footer-content footer-content4">版权所有:国家安全生产长沙矿山机电检测检验中心 湘ICP备14004059号-2 公安备案号 43010402000660</div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function() {
+        $('#dates li a').click(function() {
+            $('#dates li a').removeClass()
+            $(this).addClass('dates-a')
+        })
+    })
+</script>
+<script>
+    $(function() {
+        $('.logo-left-img').click(function() {
+            location.href = '首页.html'
+        })
+    })
+</script>
+
+<!-- 这个是tab切换的js -->
+<script>
+    $(function() {
+        $('#dates li').click(function() {
+            // console.log($(this).index());
+            $('.development-content').hide()
+            let key = $(this).index() + 1
+            $('#' + key + '').show()
+        })
+    })
+</script>
+
+</html>

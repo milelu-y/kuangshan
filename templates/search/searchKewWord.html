@@ -1,0 +1,278 @@
+<!doctype html>
+<html>
+       <style type="text/css">
+		.bloglist ul {
+		    padding: 0px 0 0!important;
+		}
+	   </style>
+	   <#include _m_fragment_import('head') />
+	   <body>
+		<!--top end-->
+		<article>
+			<!-- 当前位置 -->
+			<div class="current-position">
+				<div class="app">
+					<div class="about-icon"></div>
+
+					<div class="current-div">您当前的位置 :</div>
+					<div class="current-ul">
+						<ul>
+							<li><a href="/">网站首页</a></li>
+							<span>></span>
+							<li><a href="/search/searchKewWord.html">搜索结果</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="search_list" id="content_list">
+
+			</div>
+
+			<div class="snto_pagnavcon" id="page">
+			</div>
+		</article>
+	   <#include _m_fragment_import('footer')/>
+	   </body>
+
+	<script type="text/javascript">
+        var server = "${server}";
+        var baseApi =server+ "/index";
+		function getQueryVariable(variable) {
+			var query = window.location.search.substring(1);
+			var vars = query.split("&");
+			for (var i = 0; i < vars.length; i++) {
+				var pair = vars[i].split("=");
+				if (pair[0] == variable) {
+					return decodeURI(pair[1]);
+				}
+			}
+			return (false);
+		}
+
+		var keyword = getQueryVariable("keyword")
+		var pageSize = 10;
+		if (keyword) {
+			sarchTags(keyword)
+			$(".htitle").text(keyword ? keyword : "请输入关键字后搜索!")
+		}
+
+		function sarchTags(keyword) {
+			var pageNo = 1;
+			toSearch(pageNo, pageSize, keyword);
+		}
+
+		function toSearch(pageNo, pageSize, keyword) {
+			var data = {
+				"pageNo": pageNo,
+				"pageSize": pageSize,
+				"dto": {
+					"keyWords": keyword
+				}
+			}
+
+			$.ajax({
+				url: baseApi + "/searchKeyWord",
+				data: JSON.stringify(data),
+				type: "POST",
+				dataType: "json",
+				contentType: "application/json;charset=UTF-8",
+				success: function (data) {
+					if (data.code === 200) {
+						showRes(data.data.records)
+						if (data.data.total > 0) {
+							if (data.data.current === 1) {
+								initPage(data.data.pages, keyword);
+							}
+						} else {
+							$("#page").html('')
+						}
+						if (data.data.total === 0) {
+							$("#showNoResponse").css('display', 'block');
+						} else {
+							$("#showNoResponse").css('display', 'none');
+							;
+						}
+					}
+				}
+			});
+		}
+
+		function showRes(res) {
+			var str = "";
+			if (res.length > 0) {
+				res.forEach(function (item, index) {
+					var findText = item.title.split(keyword);
+					var result= findText.join('<span style="color:red;">' + keyword + '</span> ');
+					str += "<div class='search_listi'>";
+					str += "●&nbsp;&nbsp;<a href='" + item.url + "'>" + result + "</a>"
+					str += "</div>"
+				})
+				$("#content_list").html(str)
+			} else {
+				$("#content_list").html('<h3>暂无资源...</h3>')
+			}
+		}
+
+		function initPage(totalPages, tagId) {
+			$("#page").Page({
+				totalPages: totalPages, //分页总数
+				liNums: 7, //分页的数字按钮数(建议取奇数)
+				activeClass: 'backgroundColor', //active 类样式定义
+				hasPrv: false,//是否有前一页按钮
+				hasNext: false,//是否有后一页按钮
+				callBack: function (pageNo) {
+					toSearch(pageNo, pageSize, tagId)
+				}
+			});
+		}
+	</script>
+
+<style>
+	.search_list {
+		width: 1170px;
+		margin: 0 auto;
+		padding: 0px;
+	}
+
+	.search_listi {
+		width: 1170px;
+		padding: 20px 0px;
+		font-size: 18px;
+		line-height: 22px;
+		text-align: left;
+		border: 0px;
+		border-bottom: #eeeef0 1px solid;
+		overflow: hidden;
+		color: #989898
+	}
+
+	.border {
+		border: 1px solid #ccc !important;
+		padding: 14px;
+		border-radius: 16px !important;
+	}
+	.backgroundColor {
+		background-color: #cf0014 !important;
+	}
+	.first{
+		width: 54px;
+		height: 54px;
+		display: inline-table;
+		margin-right: 7px;
+		display: inline;
+	}
+	.fr{
+		width: 54px;
+		height: 54px;
+		background-color: #f0f0f6;
+		text-align: center;
+		font-size: 14px;
+		line-height: 54px;
+		border: #e6e6ee 1px solid;
+		color: #343536;
+		border-radius: 50%;
+		text-decoration: none;
+	}
+
+	.prv{
+		width: 54px;
+		height: 54px;
+		display: inline-table;
+		margin-right: 7px;
+		display: inline;
+	}
+	.next{
+		width: 54px;
+		height: 54px;
+		display: inline-table;
+		margin-right: 7px;
+		display: inline;
+	}
+	.last{
+		width: 54px;
+		height: 54px;
+		display: inline-table;
+		margin-right: 7px;
+		display: inline;
+	}
+
+	.snto_pagnavcon {
+		width: 80%;
+		height: 56px;
+		margin: 49px auto;
+		text-align: center;
+		list-style: none;
+	}
+
+	.snto_pagnavcon ul {
+		list-style: none;
+		display: inline;
+	}
+
+	.snto_pagnavcon li {
+		display: inline;
+	}
+
+	.snto_pagnavcon ul li a {
+		display: inline-table;
+		width: 54px;
+		height: 54px;
+		background-color: #f0f0f6;
+		text-align: center;
+		font-size: 14px;
+		line-height: 54px;
+		border: #e6e6ee 1px solid;
+		color: #343536;
+		border-radius: 50%;
+		text-decoration: none;
+		margin-right: 7px;
+	}
+	.snto_pagnavcon  a {
+		display: inline-table;
+		width: 54px;
+		height: 54px;
+		background-color: #f0f0f6;
+		text-align: center;
+		font-size: 14px;
+		line-height: 54px;
+		border: #e6e6ee 1px solid;
+		color: #343536;
+		border-radius: 50%;
+		text-decoration: none;
+		margin-right: 7px;
+	}
+
+	.snto_pagnavcon a:visited {
+		display: inline-table;
+		width: 54px;
+		height: 54px;
+		background-color: #f0f0f6;
+		text-align: center;
+		font-size: 14px;
+		line-height: 54px;
+		border: #e6e6ee 1px solid;
+		color: #343536;
+		border-radius: 50%;
+		text-decoration: none;
+		margin-right: 7px;
+	}
+
+	.snto_pagnavcon a:hover {
+		display: inline-table;
+		width: 54px;
+		height: 54px;
+		background-color: #cf0014;
+		text-align: center;
+		font-size: 14px;
+		line-height: 54px;
+		border: #cf0014 1px solid;
+		color: #ffffff;
+		border-radius: 50%;
+		text-decoration: none;
+		margin-right: 7px;
+	}
+</style>
+
+</html>

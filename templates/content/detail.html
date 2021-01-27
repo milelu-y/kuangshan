@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻详情</title>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/news-details.css">
+    <link rel="stylesheet" href="/assets/css/quill.core.css">
+    <link rel="stylesheet" href="/assets/css/quill.bubble.css">
+    <link rel="stylesheet" href="/assets/css/quill.snow.css">
+    <script src="/assets/js/jquery-1.11.3.min.js"></script>
+</head>
+
+<header>
+    <!-- 顶部 -->
+    <div class="about-head">
+        <!-- 最上面logo部分 -->
+        <div class="logo">
+            <div class="float-left logo-left">
+                <!-- 左边logo和文字 -->
+                <div class="logo-left-img"></div>
+            </div>
+            <div class="float-right logo-right">
+                <#include _m_fragment_import('search') />
+                <div class="phone float-right">
+                    <div class="phone-icon"></div>
+                    <div class="phone-num">0731-88671588</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二层头部导航区 -->
+        <div class="head-bar">
+            <div class="app">
+                <#include _m_fragment_import('category_home') />
+            </div>
+        </div>
+
+        <!-- h1 关于我们 -->
+        <div class="logo-h1 app">
+            <h1>新闻
+                <span>中心</span>
+            </h1>
+            <div>NewsCenter</div>
+        </div>
+
+    </div>
+
+</header>
+<body>
+<!-- 当前位置 -->
+<@_d_content contentId=contentId >
+<div class="current-position">
+    <div class="app1 app">
+        <div class="about-icon"></div>
+        <@_d_navigation contentId=contentId>
+        <div class="current-div">您当前的位置 :</div>
+        <div class="current-ul">
+            <ul>
+                <li><a href="/index.html">网站首页</a></li>
+                <span>></span>
+                <#list navigations as navigation>
+                <#if navigation_has_next>
+                <li><a href="${navigation.url!}">${navigation.name!}</a></li>
+                <span>></span>
+                </#if>
+                </#list>
+                <li><a href="javascript:;">正文</a></li>
+            </ul>
+        </div>
+</@_d_navigation>
+    </div>
+    <div class="news-content app">
+        <h1>${title!}</h1>
+        <div class="news-text">
+            <div class="text1">新闻导读 :
+                <sapn class="text2">${description!}</sapn>
+            </div>
+        </div>
+        <div class="news-time">
+            <div class="time">
+                <div class="left">发布时间 :</div>
+                <div class="right">${(publishDate?string('YYYY-MM-dd'))!'${.now?string("YYYY-MM-dd")}'}</div>
+            </div>
+            <div class="click-rate">
+                <div class="left">点击率 :</div>
+                <div class="right"><span id="clicks">${clicks!'0'}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 新闻详情 -->
+<div class="news-content app ql-editor">
+    ${text!}
+    <div class="content-span-border"></div>
+    <div class="content-next">
+        <div>
+            上一篇：
+            <@_d_content_pre contentId=contentId categoryId=categoryId>
+            <#if previous??>
+            <a class="next-top" href="${previous.url!}">${previous.title!'暂无标题'}</a>
+            <#else>
+            <a class="next-top" href="#">无</a>
+            </#if>
+            </@_d_content_pre>
+        </div>
+        <div>
+            下一篇：
+            <@_d_content_next contentId=contentId categoryId=categoryId>
+            <#if next??>
+            <a class="next-bottom" href="${next.url!}">${next.title!'暂无标题'}</a>
+            <#else>
+            <a class="next-bottom" href="#">无</a>
+            </#if>
+            </@_d_content_next>
+        </div>
+    </div>
+</div>
+
+
+<!-- 最新更新 -->
+<div class="newest-content">
+    <@_d_uptodates rowNum=4 categoryId=categoryId>
+
+    <div class="app">
+        <div class="text-div">最新更新</div>
+        <div class="text-img">
+            <ul>
+                <#list contents as content>
+                <li>
+                    <img src="${content.cover!}" alt="">
+                    <div class="img-text">
+                        <a href="${content.url!}">
+                            <#if (content.title)??>
+                            <#if (content.title)?length gt 17>
+                            ${(content.title)?substring(0,17)!}
+                            <#else>
+                            ${content.title!}......
+                            </#if>
+                            <#else>
+                            无
+                            </#if>
+                        </a>
+                    </div>
+                </li>
+            </#list>
+            </ul>
+        </div>
+    </div>
+    </@_d_uptodates>
+</div>
+</@_d_content>
+
+<#include _m_fragment_import('footer') />
+
+</body>
+<script>
+    $(function () {
+        $('.logo-left-img').click(function () {
+            location.href = '/'
+        })
+    })
+</script>
+<#include _m_fragment_import('clicks') />
+</html>
